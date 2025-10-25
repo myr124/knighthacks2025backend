@@ -2,7 +2,7 @@ from pydantic import Field
 from google.adk.agents import Agent, LlmAgent, ParallelAgent, SequentialAgent
 from pydantic import BaseModel
 from typing import List
-from .utils import load_instructions
+from utils import load_instructions, load_archetypes
 
 
 # Steps
@@ -18,22 +18,15 @@ class PersonaMiniSchema(BaseModel):
 
 sub_agents: List[LlmAgent] = []
 
+# Load personality archetypes from external JSON file
+personality_archetypes = load_archetypes("multi-persona-agent/personality_archetypes.txt")
 
-personality_archetypes = {
-    "lowincome": "low-income, high risk, socially connected",
-    "middleclass": "middle-class, low risk, socially average",
-    "retired": "retired, high risk, socially limited",
-    "underemployed": "under-employed, medium risk, socially connected",
-    "highincome": "high-income, medium risk, socially active",
-    "student": "student, low risk, socially connected",
-}
-
-# Load the archetype template once and render per-archetype by replacing {ARCHETYPE_DESC}
-_archetype_template = load_instructions("instructions/archetype_template.txt")
+# Load the archetype prompt template once and render per-archetype by replacing {ARCHETYPE_DESC}
+_archetype_prompt_template = load_instructions("multi-persona-agent/prompts/archetype_instructions_template.txt")
 
 for archetype in personality_archetypes:
     arche_desc = personality_archetypes[archetype]
-    instruction_text = _archetype_template.replace("{ARCHETYPE_DESC}", arche_desc)
+    instruction_text = _archetype_prompt_template.replace("{ARCHETYPE_DESC}", arche_desc)
 
     agent = LlmAgent(
         name=archetype,
@@ -49,24 +42,13 @@ for archetype in personality_archetypes:
     # ---------------------------------------------
 
 
-# 2) Batch fan-out into small ParallelAgent "waves"
-#    (keeps stock ADK; reduces 429s & blast radius)
+# 2) Single ParallelAgent for all persona agents
 # ---------------------------------------------
-def chunk(lst, n):
-    for i in range(0, len(lst), n):
-        yield lst[i : i + n]
-
-
-WAVE_SIZE = 6  # tune: 6–8 is a good start
-review_waves = []
-for i, wave_agents in enumerate(chunk(sub_agents, WAVE_SIZE), start=1):
-    review_waves.append(
-        ParallelAgent(
-            name=f"subset_wave_{i}",
-            sub_agents=wave_agents,
-            description=f"subset wave #{i} (size={len(wave_agents)})",
-        )
-    )
+all_personas_parallel = ParallelAgent(
+    name="all_personas",
+    sub_agents=sub_agents,
+    description=f"All {len(sub_agents)} persona agents running in parallel",
+)
 
 
 # --- Output schema for the merger (the big final object you already use) ---
@@ -82,19 +64,20 @@ class outputSchema(BaseModel):
 merger_agent = LlmAgent(
     name="merger_agent",
     model="gemini-2.5-flash-lite",
-    instruction=load_instructions("instructions/summarizer_instructions.txt"),
+    instruction=load_instructions("multi-persona-agent/prompts/summarizer_instructions.txt"),
     description="Summarizes the entire sentiment of all population subsets",
     output_schema=outputSchema,
     output_key="final_summary",
 )
 
-# --- Sequential Pipeline (unchanged pattern) ---
-# Just insert the waves instead of one massive parallel.
+# --- Sequential Pipeline ---
+# Phase 1: All personas run in parallel
+# Phase 2: Merger aggregates results
 sequential_pipeline_agent = SequentialAgent(
     name="FinalAnalysisAgent",
     sub_agents=[
-        *review_waves,  # Phase 2: multiple small ParallelAgent batches
-        merger_agent,  # Phase 3
+        all_personas_parallel,  # Phase 1: all personas in parallel
+        merger_agent,           # Phase 2: aggregation
     ],
     description="Coordinates the creation of agents and summarization of reactions to hurricane",
 )
