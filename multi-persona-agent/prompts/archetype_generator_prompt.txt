@@ -1,122 +1,226 @@
-You are an expert demographer and disaster preparedness analyst. Your task is to generate a set of population archetypes for a specific location that will be used to model how different groups respond to emergency situations.
-
 === LOCATION CONTEXT ===
 {LOCATION_CONTEXT}
 
 === YOUR TASK ===
 
-Analyze the location context above and generate a comprehensive set of population archetypes that accurately represent the demographic, economic, and behavioral diversity of this location's population.
+Analyze the location context above and generate a comprehensive, highly diverse set of population archetypes that accurately represent the demographic, economic, cultural, access-related, and behavioral diversity of this location's population. Aim for intersectional coverage—not just income or age, but also differences in housing, language access, disability, digital access, transportation, and residency status.
 
 === ARCHETYPE GENERATION GUIDELINES ===
 
-**Number of Archetypes:**
-- Generate 6-15 archetypes depending on the complexity and diversity of the location
-- More diverse locations (large cities, tourism hubs) may need 12-15 archetypes
-- Smaller, more homogeneous locations may need only 6-8 archetypes
+Number of Archetypes:
 
-**Types of Archetypes to Include:**
+Generate 6-15 archetypes depending on the complexity and diversity of the location
 
-1. **DEMOGRAPHIC ARCHETYPES** (based on socioeconomic status, age, employment):
-   Consider including archetypes for:
-   - Low-income populations (essential workers, service industry, hourly workers)
-   - Middle-class populations (stable employment, homeowners)
-   - High-income populations (professionals, business owners)
-   - Retired/elderly populations (fixed income, health concerns)
-   - Students (college/university, limited resources)
-   - Underemployed/gig workers (unstable income, flexible work)
+More diverse locations (large cities, tourism hubs) may need 12-15 archetypes
 
-2. **PERSONALITY/BEHAVIORAL ARCHETYPES** (based on decision-making patterns):
-   Consider including archetypes for:
-   - The Planner: Proactive, organized, prepares early
-   - The Skeptic: Distrusts authorities, questions warnings
-   - The Altruist: Helps neighbors, community-focused
-   - The Anxious: High stress, fearful, indecisive
-   - The Optimist: Downplays risk, believes things will be fine
-   - Family First: Child/dependent-focused decision maker
-   - Information Seeker: Data-driven, monitors news constantly
-   - Community Leader: Organizes others, takes charge
-   - The Traditional: Follows cultural norms, resistant to change
-   - Resource Constrained: Limited by finances, mobility, health
+Smaller, more homogeneous locations may need only 6-8 archetypes
 
-**Use Location Context to Guide Selection:**
+Types of Archetypes to Include (ensure breadth and intersectionality):
+
+DEMOGRAPHIC ARCHETYPES (based on socioeconomic status, age, employment):
+Consider including archetypes for:
+
+Low-income populations (essential workers, service industry, hourly workers)
+
+Middle-class populations (stable employment, homeowners)
+
+High-income populations (professionals, business owners)
+
+Retired/elderly populations (fixed income, health concerns)
+
+Students (college/university, limited resources)
+
+Underemployed/gig workers (unstable income, flexible work)
+
+Unhoused or housing-insecure (shelters, couch-surfing, encampments)
+
+Manufactured/mobile home residents (storm-vulnerable housing)
+
+Institutional or congregate settings (nursing homes, assisted living, dorms)
+
+Recent immigrants/refugees (varying legal/work status, remittance obligations)
+
+PERSONALITY/BEHAVIORAL ARCHETYPES (based on decision-making patterns):
+Consider including archetypes for:
+
+The Planner: Proactive, organized, prepares early
+
+The Skeptic: Distrusts authorities, questions warnings
+
+The Altruist: Helps neighbors, community-focused
+
+The Anxious: High stress, fearful, indecisive
+
+The Optimist: Downplays risk, believes things will be fine
+
+Family First: Child/dependent-focused decision maker
+
+Information Seeker: Data-driven, monitors news constantly
+
+Community Leader: Organizes others, takes charge
+
+The Traditional: Follows cultural norms, resistant to change
+
+Resource Constrained: Limited by finances, mobility, health
+
+Last-Minute Evacuator: Delays action until late triggers
+
+Shelter-in-Place Loyalist: Prefers staying put despite guidance
+
+ACCESS & CONTEXT ARCHETYPES (express these via the allowed fields/traits below):
+Use the description’s existing fields to reflect:
+
+Language access (e.g., “limited_english_proficiency” as a trait)
+
+Disability & mobility (mobility_impaired, medically_dependent)
+
+Digital divide (low_tech_access, limited_connectivity)
+
+Transportation (carless, transit-dependent)
+
+Caregiving (caregiver_burden, multi-generational household)
+
+Work constraints (irregular_shifts, cannot_remote)
+
+Geographic isolation (rural_isolated, floodplain_resident, highrise_apartment)
+
+Use Location Context to Guide Selection:
 
 Analyze the provided location context for:
 
-- **Demographics**: Age distribution, racial/ethnic composition, income levels
-  * High retiree population → include "retired" or "elderly" archetype
-  * Large immigrant community → consider language barriers, cultural attitudes
-  * Student population → include "student" archetype
-  * Income inequality → include both "lowincome" and "highincome" archetypes
+Demographics: Age distribution, racial/ethnic composition, income levels
 
-- **Economic Structure**: Dominant industries, employment patterns
-  * Tourism economy → service workers with unstable hours, schedule constraints
-  * Manufacturing → shift workers, union membership, economic vulnerability
-  * Tech/professional → higher income, remote work flexibility
-  * Agriculture → seasonal work, rural isolation
+High retiree population → include "retired" or "elderly" archetype
 
-- **Population Characteristics**:
-  * Seasonal residents (snowbirds, college students) → transient populations
-  * High homeownership vs renters → property protection vs mobility
-  * Urban density vs rural isolation → social connectivity differences
-  * Language diversity → information access barriers
+Large immigrant community → consider language barriers, cultural attitudes
 
-**Archetype Naming Requirements:**
+Student population → include "student" archetype
 
-- Use GENERIC names only (no location-specific job titles)
-- Examples of good names: `lowincome`, `middleclass`, `retired`, `student`, `the_skeptic`, `family_first`, `the_altruist`
-- Examples of bad names: `theme_park_worker`, `orlando_retiree`, `beach_resident` (too location-specific)
-- Use snake_case format: `the_planner`, `resource_constrained`, `information_seeker`
+Income inequality → include both "lowincome" and "highincome" archetypes
 
-**Archetype Description Requirements:**
+Visible diversity gaps → add at least 2 archetypes that capture underrepresented groups (e.g., unhoused, manufactured-housing)
+
+Economic Structure: Dominant industries, employment patterns
+
+Tourism economy → service workers with unstable hours, schedule constraints
+
+Manufacturing → shift workers, union membership, economic vulnerability
+
+Tech/professional → higher income, remote work flexibility
+
+Agriculture → seasonal work, rural isolation
+
+Gig economy → platform-based workers with income volatility
+
+Population Characteristics:
+
+Seasonal residents (snowbirds, college students) → transient populations
+
+High homeownership vs renters → property protection vs mobility
+
+Urban density vs rural isolation → social connectivity differences
+
+Language diversity → information access barriers
+
+Car ownership variance → carless and transit-dependent groups
+
+Digital access variance → low- or no-internet households
+
+Health dependencies → electricity-dependent medical devices, dialysis
+
+Archetype Naming Requirements:
+
+Use GENERIC names only (no location-specific job titles)
+
+Examples of good names: lowincome, middleclass, retired, student, the_skeptic, family_first, the_altruist
+
+Examples of bad names: theme_park_worker, orlando_retiree, beach_resident (too location-specific)
+
+Use snake_case format: the_planner, resource_constrained, information_seeker
+
+Archetype Description Requirements (keep the SAME four-element format):
 
 Each archetype description MUST include these four elements in comma-separated format:
 
-1. **Socioeconomic Status**:
-   - Options: low-income, middle-class, high-income, mixed-income, retired (fixed income), student (limited income), underemployed
+Socioeconomic Status:
 
-2. **Risk/Vulnerability Level**:
-   - Options: low risk, medium risk, high risk, very high risk
-   - Consider: housing quality, financial resources, health status, mobility, location vulnerability
+Options: low-income, middle-class, high-income, mixed-income, retired (fixed income), student (limited income), underemployed
 
-3. **Social Connectivity**:
-   - Options: socially connected, socially active, socially average, socially limited, socially isolated
-   - Consider: community ties, family networks, religious/cultural groups, language barriers
+Risk/Vulnerability Level:
 
-4. **Personality/Behavioral Traits** (when relevant):
-   - Options: proactive, reactive, anxious, calm, skeptical, trusting, stubborn, flexible, optimistic, pessimistic, family-focused, community-oriented, individualistic, information-seeking, risk-averse, resourceful, etc.
-   - Only include personality traits when they're defining characteristics of that archetype
-   - Demographic archetypes may not need personality traits
-   - Personality-based archetypes MUST include relevant behavioral traits
+Options: low risk, medium risk, high risk, very high risk
 
-**Format:** "socioeconomic status, risk level, social connectivity, [optional personality traits]"
+Consider: housing quality, financial resources, health status, mobility, location vulnerability
 
-**Examples of Well-Formed Descriptions:**
-- "low-income, high risk, socially connected, financially stressed"
-- "middle-class, medium risk, socially active, proactive planner"
-- "retired, high risk, socially limited, health-conscious, anxious"
-- "student, low risk, socially connected"
-- "middle-income, medium risk, socially average, skeptical of authorities"
-- "low-income, high risk, socially connected, family-first decision maker"
+Social Connectivity:
+
+Options: socially connected, socially active, socially average, socially limited, socially isolated
+
+Consider: community ties, family networks, religious/cultural groups, language barriers
+
+Personality/Behavioral Traits (use to encode behavioral and access constraints when relevant):
+
+Options: proactive, reactive, anxious, calm, skeptical, trusting, stubborn, flexible, optimistic, pessimistic, family-focused, community-oriented, individualistic, information-seeking, risk-averse, resourceful
+
+You may also include access/context traits here when defining characteristics (e.g., limited_english_proficiency, mobility_impaired, medically_dependent, low_tech_access, transit_dependent, caregiver_burden, irregular_shifts, carless, rural_isolated, manufactured_housing, shelter_in_place_preference, late_evacuator)
+
+Only include traits when they’re defining characteristics of that archetype
+
+Format: "socioeconomic status, risk level, social connectivity, [optional personality/access traits]"
+
+Examples of Well-Formed Descriptions:
+
+"low-income, high risk, socially connected, financially stressed, transit_dependent"
+
+"middle-class, medium risk, socially active, proactive planner"
+
+"retired, high risk, socially limited, health-conscious, mobility_impaired"
+
+"student, low risk, socially connected, low_tech_access"
+
+"middle-income, medium risk, socially average, skeptical of authorities"
+
+"low-income, very high risk, socially connected, manufactured_housing"
+
+"mixed-income, high risk, socially isolated, limited_english_proficiency"
 
 === PROPORTIONAL REPRESENTATION ===
 
-**CRITICAL:** Analyze the location demographics and assign realistic proportions to each archetype based on how common that population segment is in the location.
+CRITICAL: Analyze the location demographics and assign realistic proportions to each archetype based on how common that population segment is in the location.
 
 Guidelines for proportion assignment:
-- Proportions should reflect the actual demographic makeup of the location
-- If a location has a tourism-based economy, service workers should have higher proportion (0.25-0.35)
-- If a location has high retiree population (like Florida), retired archetype should be higher (0.20-0.30)
-- Affluent areas should have higher proportion of high-income (0.30-0.40)
-- Working-class areas should have higher proportion of low/middle-income (0.50-0.70 combined)
-- Student towns should have notable student proportion (0.15-0.25)
-- Proportions are RELATIVE WEIGHTS (don't need to sum to exactly 1.0, but should be reasonable)
-- More common archetypes should have proportions 2x-3x higher than rare ones
-- Use the location context to determine which groups are over/under-represented
+
+Proportions should reflect the actual demographic makeup of the location
+
+If a location has a tourism-based economy, service workers should have higher proportion (0.25-0.35)
+
+If a location has high retiree population (like Florida), retired archetype should be higher (0.20-0.30)
+
+Affluent areas should have higher proportion of high-income (0.30-0.40)
+
+Working-class areas should have higher proportion of low/middle-income (0.50-0.70 combined)
+
+Student towns should have notable student proportion (0.15-0.25)
+
+Ensure minority/edge cases appear with smaller but non-zero weights (e.g., 0.01–0.06) to reflect real but less prevalent groups (unhoused, limited_english_proficiency, mobility_impaired, carless)
+
+Proportions are RELATIVE WEIGHTS (don't need to sum to exactly 1.0, but should be reasonable)
+
+More common archetypes should have proportions 2x-3x higher than rare ones
+
+Use the location context to determine which groups are over/under-represented
+
+Diversity sanity check: Include at least 3 archetypes that specifically reflect access or structural barriers (e.g., transit_dependent, low_tech_access, manufactured_housing)
 
 Examples of reasonable proportion patterns:
-- Service economy: service workers (0.30) > middle-class (0.20) > retired (0.15) > students (0.10)
-- Retirement community: retired (0.40) > middle-class (0.25) > service workers (0.15)
-- College town: students (0.30) > middle-class (0.20) > service workers (0.15) > retired (0.10)
+
+Service economy: service workers (0.30) > middle-class (0.20) > retired (0.15) > students (0.10)
+
+Retirement community: retired (0.40) > middle-class (0.25) > service workers (0.15)
+
+College town: students (0.30) > middle-class (0.20) > service workers (0.15) > retired (0.10)
+
+Dense urban core: transit_dependent_lowincome (0.20) > middleclass_renters (0.18) > highincome_professionals (0.15) > unhoused (0.05)
 
 === OUTPUT REQUIREMENTS ===
 
@@ -124,162 +228,44 @@ OUTPUT ONLY a valid JSON ARRAY with NO extra text, NO markdown, NO code blocks, 
 
 Format:
 [
-  {
-    "name": "archetype_key",
-    "proportion": 0.XX,
-    "description": "comma-separated traits"
-  },
-  ...
+{
+"name": "archetype_key",
+"proportion": 0.XX,
+"description": "comma-separated traits"
+},
+...
 ]
 
 Rules:
-- Valid JSON array format with double quotes
-- Each object must have exactly three fields: "name", "proportion", "description"
-- "name": snake_case string (lowercase with underscores)
-- "proportion": float between 0 and 1 representing relative commonality of this archetype
-- "description": string following the four-element format (socioeconomic, risk, social, personality)
-- No trailing commas
-- 6-15 archetypes total
-- Mix of demographic and personality-based archetypes
-- Archetypes should be mutually exclusive but collectively represent the population
-- Balance universal types (exist everywhere) with location-relevant types
-- Higher proportions for more common demographic groups in the location
-- Lower proportions for rare/niche groups
+
+Valid JSON array format with double quotes
+
+Each object must have exactly three fields: "name", "proportion", "description"
+
+"name": snake_case string (lowercase with underscores)
+
+"proportion": float between 0 and 1 representing relative commonality of this archetype
+
+"description": string following the four-element format (socioeconomic, risk, social, personality/access)
+
+No trailing commas
+
+6-15 archetypes total
+
+Mix of demographic and personality-based archetypes
+
+Mandatory diversity: include at least one archetype each reflecting (a) language/access barriers, (b) disability/mobility or medical dependence, and (c) transportation or digital-access constraints
+
+Archetypes should be mutually exclusive but collectively represent the population
+
+Balance universal types (exist everywhere) with location-relevant types
+
+Higher proportions for more common demographic groups in the location
+
+Lower proportions for rare/niche groups
 
 === EXAMPLE OUTPUTS ===
 
-Example 1 - Tourist/Service Economy (Orlando, FL):
-[
-  {
-    "name": "lowincome_service",
-    "proportion": 0.30,
-    "description": "low-income service worker, high risk, socially connected, schedule-constrained"
-  },
-  {
-    "name": "middleclass_homeowner",
-    "proportion": 0.18,
-    "description": "middle-class homeowner, medium risk, socially average"
-  },
-  {
-    "name": "retired_seasonal",
-    "proportion": 0.15,
-    "description": "retired seasonal resident, medium risk, socially limited, health-focused"
-  },
-  {
-    "name": "student",
-    "proportion": 0.12,
-    "description": "student, low risk, socially active, transient"
-  },
-  {
-    "name": "the_planner",
-    "proportion": 0.08,
-    "description": "middle-income, low risk, socially connected, proactive and organized"
-  },
-  {
-    "name": "family_first",
-    "proportion": 0.10,
-    "description": "middle-income, high risk, socially connected, child-focused decisions"
-  },
-  {
-    "name": "resource_constrained",
-    "proportion": 0.05,
-    "description": "low-income, very high risk, socially connected, limited financial resources"
-  },
-  {
-    "name": "the_anxious",
-    "proportion": 0.02,
-    "description": "mixed-income, medium risk, socially limited, high stress and fearful"
-  }
-]
-
-Example 2 - Working Class Port City (New Orleans, LA):
-[
-  {
-    "name": "lowincome",
-    "proportion": 0.28,
-    "description": "low-income, high risk, socially connected, limited resources"
-  },
-  {
-    "name": "service_industry",
-    "proportion": 0.25,
-    "description": "low-to-middle income, high risk, socially connected, work-schedule constraints"
-  },
-  {
-    "name": "the_traditional",
-    "proportion": 0.18,
-    "description": "middle-income, medium risk, socially connected, culturally rooted, skeptical of evacuation"
-  },
-  {
-    "name": "retired",
-    "proportion": 0.12,
-    "description": "retired fixed income, high risk, socially limited, mobility challenges"
-  },
-  {
-    "name": "family_first",
-    "proportion": 0.10,
-    "description": "low-to-middle income, high risk, socially connected, child-safety focused"
-  },
-  {
-    "name": "the_altruist",
-    "proportion": 0.04,
-    "description": "middle-income, medium risk, socially active, community helper"
-  },
-  {
-    "name": "student",
-    "proportion": 0.03,
-    "description": "student, medium risk, socially active, transient population"
-  }
-]
-
-Example 3 - Affluent Suburban Area (Coral Gables, FL):
-[
-  {
-    "name": "highincome",
-    "proportion": 0.35,
-    "description": "high-income professional, low risk, socially active, resourceful"
-  },
-  {
-    "name": "middleclass",
-    "proportion": 0.25,
-    "description": "middle-class homeowner, medium risk, socially average"
-  },
-  {
-    "name": "retired_affluent",
-    "proportion": 0.20,
-    "description": "retired high-income, low risk, socially active, health-conscious"
-  },
-  {
-    "name": "the_planner",
-    "proportion": 0.10,
-    "description": "high-income, low risk, socially connected, extremely proactive"
-  },
-  {
-    "name": "service_workers",
-    "proportion": 0.06,
-    "description": "low-income service workers, high risk, socially connected, work-dependent"
-  },
-  {
-    "name": "family_first",
-    "proportion": 0.03,
-    "description": "middle-to-high income, medium risk, socially connected, child protection focused"
-  },
-  {
-    "name": "the_optimist",
-    "proportion": 0.01,
-    "description": "middle-to-high income, low risk, socially average, downplays risk"
-  }
-]
-
-=== IMPORTANT REMINDERS ===
-
-- Analyze the LOCATION_CONTEXT carefully to identify dominant demographic and economic patterns
-- Assign realistic proportions based on actual demographics (common groups get 0.20-0.35, rare groups get 0.01-0.05)
-- More prevalent archetypes should have proportions 2x-3x higher than less common ones
-- Balance demographic diversity with behavioral diversity
-- Ensure archetypes collectively represent the full population spectrum
-- Use generic archetype names (not location-specific job titles)
-- Include all four description elements for each archetype description
-- Output ONLY the JSON array, nothing else (no markdown, no code blocks, no explanation)
-- Array format with name, proportion (0-1 float), and description fields
+(Examples remain valid; consider adding small-proportion, access-focused archetypes like transit_dependent_lowincome, limited_english_household, or manufactured_housing_resident to increase diversity when appropriate.)
 
 Now generate the archetypes for the provided location context.

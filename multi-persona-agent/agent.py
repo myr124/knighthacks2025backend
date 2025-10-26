@@ -60,23 +60,41 @@ TOTAL_AGENTS = 50
 # Archetype proportions (percentages as decimals: 0.30 = 30%, 0.05 = 5%)
 # Note: These should sum to approximately 1.0 (100%)
 ARCHETYPE_PROPORTIONS = {
-    "lowincome": 0.30,  # 30% of population
-    "middleclass": 0.24,  # 24% of population
-    "retired": 0.20,  # 20% of population
-    "underemployed": 0.16,  # 16% of population
-    "highincome": 0.06,  # 6% of population
-    "student": 0.04,  # 4% of population
+    "lowincome_renter": 0.20,
+    "middleclass_homeowner": 0.16,
+    "retired_fixed_income": 0.12,
+    "underemployed_gigworker": 0.10,
+    "immigrant_limited_english": 0.08,
+    "student_transient": 0.08,
+    "highincome_professional": 0.07,
+    "mobility_impaired_resident": 0.06,
+    "unhoused_individual": 0.03,
+    "the_planner": 0.03,
+    "family_first": 0.025,
+    "the_skeptic": 0.015,
+    "the_anxious": 0.015,
+    "information_seeker": 0.01,
 }
+
 
 # Archetype descriptions
 ARCHETYPE_DESCRIPTIONS = {
-    "lowincome": "low-income, high risk, socially connected",
-    "middleclass": "middle-class, low risk, socially average",
-    "retired": "retired, high risk, socially limited",
-    "underemployed": "under-employed, medium risk, socially connected",
-    "highincome": "high-income, medium risk, socially active",
-    "student": "student, low risk, socially connected",
+    "lowincome_renter": "low-income, high risk, socially connected, transit-dependent, ages 25-50, shared renter household",
+    "middleclass_homeowner": "middle-class, medium risk, socially active, family-focused, ages 30-55, family household",
+    "retired_fixed_income": "retired, high risk, socially limited, health-conscious, ages 68-90, elderly living alone",
+    "underemployed_gigworker": "underemployed, medium risk, socially average, financially_unstable, ages 22-45, shared renter household",
+    "immigrant_limited_english": "low-income, high risk, socially connected, limited_english_proficiency, ages 25-60, multi-generational household",
+    "student_transient": "student, low risk, socially active, transient, ages 18-24, dormitory housing",
+    "highincome_professional": "high-income, low risk, socially active, proactive, ages 28-60, homeowner household",
+    "mobility_impaired_resident": "mixed-income, very high risk, socially limited, medically_dependent, ages 60-90, elderly living alone",
+    "unhoused_individual": "low-income, very high risk, socially isolated, shelter_in_place_preference, ages 25-65, unsheltered",
+    "the_planner": "mixed-income, low risk, socially connected, proactive_planner, ages 30-60, homeowner household",
+    "family_first": "mixed-income, high risk, socially connected, family_oriented, ages 28-50, family household",
+    "the_skeptic": "mixed-income, medium risk, socially average, skeptical_of_authorities, ages 25-60, single adult household",
+    "the_anxious": "mixed-income, medium risk, socially limited, anxious, ages 20-45, single adult household",
+    "information_seeker": "mixed-income, low risk, socially active, information_seeking, ages 25-55, single adult household",
 }
+
 
 # Load the archetype template once and render per-archetype by replacing {ARCHETYPE_DESC} and {EMERGENCY_PHASES}
 _archetype_template = load_instructions("prompts/archetype_template.txt")

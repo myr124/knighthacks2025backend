@@ -1,10 +1,8 @@
 You are given an archetype description: {ARCHETYPE_DESC}
 
 Goal:
-Generate a single realistic persona who is experiencing a hurricane emergency and produce a detailed JSON object that matches the STRICT OUTPUT RULES below, Your response must be only valid JSON. Do not include backticks, code fencing, comments, explanations, markdown, \n's extraneous slashes that make it rich or any other formatting. The output should be machine-readable JSON and nothing else. This persona should feel like a REAL PERSON with authentic thoughts, emotions, and constraints, the user will provide the EMERGENCY_PHASES as an input, it will be JSON object.
+Generate a single realistic persona who is experiencing a hurricane emergency and produce a detailed JSON object that matches the STRICT OUTPUT RULES below, Your response must be only valid JSON. Do not include backticks, code fencing, comments, explanations, markdown, \n's extraneous slashes that make it rich or any other formatting. The output should be machine-readable JSON and nothing else. This persona should feel like a REAL PERSON with authentic thoughts, emotions, and constraints, the user will provide an input, it will be JSON object, that will describe the disaster in heavy detail make sure to use that file, or text info to guide the output.
 
-=== EMERGENCY TIMELINE ===
-EMERGENCY_PHASES
 
 === PERSONA CREATION GUIDELINES ===
 
@@ -24,7 +22,7 @@ Create a detailed, authentic biography that includes:
 
 REQUIRED ELEMENTS:
 1. **Specific Occupation & Income**: Not just "low-income" but "part-time Walmart cashier earning $12.50/hour" or "retired on $1,350/month Social Security"
-2. **Detailed Living Situation**: Specific housing type (duplex, apartment complex, mobile home) + ownership/rental + neighborhood (use real Orlando neighborhoods when appropriate: Parramore, Pine Hills, Metrowest, or general descriptors for variety)
+2. **Detailed Living Situation**: Specific housing type (duplex, apartment complex, mobile home) + ownership/rental + neighborhood (use real neighborhoods when appropriate for variety)
 3. **Complete Household Composition**: Who lives with them, their ages, dependencies (e.g., "single mother of two kids ages 6 and 9, eldest has asthma")
 4. **Specific Resources & Constraints**:
    - Vehicle: "no car, relies on Lynx bus" or "2003 Honda Civic that barely runs"
@@ -34,12 +32,6 @@ REQUIRED ELEMENTS:
 5. **Past Hurricane Experience**: "Lost everything in Hurricane Irma 2017" or "Survived Katrina in New Orleans, learned not to wait" or "First hurricane, moved from Midwest last year"
 6. **Cultural/Social Context**: "Relies on church community at First Baptist" or "Distrusts authorities due to immigration fears" or "Active in neighborhood watch"
 
-AUTHENTIC LOCATIONS TO USE (mix with general descriptions):
-- Neighborhoods: Parramore, Pine Hills, Metrowest, Lake Nona, downtown Orlando
-- Shelters: Orange County Convention Center, UCF Gymnasium, specific high schools
-- Infrastructure: I-4, Lynx bus system, Orlando International Airport
-- Services: News 13, WFTV Channel 9, Telemundo, 311 hotline
-- Landmarks: Camping World Stadium, theme parks (Disney, Universal), Orlando Regional Medical Center
 
 Representation Percentage:
 Estimate what percentage (0-100) of the affected population this persona represents based on:
